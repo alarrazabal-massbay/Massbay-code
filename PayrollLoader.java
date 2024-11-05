@@ -38,7 +38,7 @@ public class PayrollLoader {
 
     public List<Employee> getEmployee( String person_name ) {
 
-        // If there's more than 1 employee with the same name, it's good to keep them in a list
+        // If there's more than 1 employee with the same name, it's good to keep them in a list and return it
         List<Employee> all_employees = new ArrayList<>();
         String[] first_and_last = person_name.split(" ");
         String first_name = first_and_last[0];
