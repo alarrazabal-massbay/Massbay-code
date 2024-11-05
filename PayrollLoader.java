@@ -63,7 +63,11 @@ public class PayrollLoader {
                 employee_found = false;
             }
         }
-
+        
+       if ( all_employees.isEmpty() ) {
+            all_employees.add(employee);
+        }
+        
         return all_employees;
     }
 }
