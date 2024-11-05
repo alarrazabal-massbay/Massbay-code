@@ -45,7 +45,7 @@ public class PayrollLoader {
         String last_name = first_and_last[1];
 
         // use for each loop to find employee (next_employee[3] == first_name, next_employee[2] == last_name)
-        // keep consecutive tracks if employee has more than 1 job, then break after we counted all their jobs
+        // keep consecutive tracks if employee has more than 1 job, then continue to search if another employee has the same name
         // if different employee was found with same name, print another employee????????
         // if no employee was found, return null
 
