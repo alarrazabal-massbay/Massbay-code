@@ -46,7 +46,7 @@ public class PayrollLoader {
 
         // use for each loop to find employee (next_employee[3] == first_name, next_employee[2] == last_name)
         // keep consecutive tracks if employee has more than 1 job, then continue to search if another employee has the same name
-        // if different employee was found with same name, append another employee
+        // if different employee was found with same name, construct another employee and append
         // if no employee was found, return null
 
         Employee employee = null;
