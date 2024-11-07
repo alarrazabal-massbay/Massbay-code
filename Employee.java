@@ -28,6 +28,20 @@ public class Employee {
         return total_pay;
     }
 
+    private String highestTitle() {
+
+        int highest_Salary = 0;
+        String highest_title = "";
+        for ( Job next_job : this.jobs_list ) {
+            if ( next_job.getPay() > highest_salary ) {
+                highest_title = next_job.getTitle();
+            }
+            
+        }
+
+        return highest_title;
+    }
+
     @Override
     public String toString() {
         String representation = 
@@ -48,17 +62,9 @@ public class Employee {
             "\nType: " + jobs_list.get(i).getType() +
             "\nAnnual Pay: " + jobs_list.get(i).getPay();
 
-            /* 
-            if ( this.jobs_list.get(i).getPay() > highest_salary ) {
-                highest_salary = this.jobs_list.get(i).getPay();
-                highest_title = this.jobs_list.get(i).getTitle();
-            }
-            */
-        }
-
-        /*
-        "\nHighest Earning Job: " + highest_title;
-        */
+        
+        "\nHighest Earning Job: " + highestTitle();
+        
         
         return representation;
     }
