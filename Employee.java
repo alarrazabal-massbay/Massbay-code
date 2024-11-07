@@ -30,11 +30,12 @@ public class Employee {
 
     private String highestTitle() {
 
-        int highest_Salary = 0;
+        int highest_salary = 0;
         String highest_title = "";
         for ( Job next_job : this.jobs_list ) {
             if ( next_job.getPay() > highest_salary ) {
                 highest_title = next_job.getTitle();
+                highest_salary = next_job.getPay();
             }
             
         }
