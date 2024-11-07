@@ -50,17 +50,15 @@ public class PayrollLoader {
         // if no employee was found, return null
 
         Employee employee = null;
-        boolean employee_found = false;
+        String trans_id = "";
         for ( String[] next_employee : this.employee_list ) {
-            if ( (next_employee[3].equals(first_name) && next_employee[2].equals(last_name)) && !employee_found) {
+            if ( (next_employee[3].equals(first_name) && next_employee[2].equals(last_name)) && !trans_id.equals(next_employee[1]) {
                 employee = new Employee(next_employee[1], next_employee[2], next_employee[3]);
-                employee.addJob( next_employee[4], next_employee[5], next_employee[6], Double.parseDouble(next_employee[8]) );
+
+all_employees.add(employee);               employee.addJob( next_employee[4], next_employee[5], next_employee[6], Double.parseDouble(next_employee[8]) );
                 employee_found = true;
-            } else if ( (next_employee[3].equals(first_name) && next_employee[2].equals(last_name)) && employee_found ) {
+            } else if ( (next_employee[3].equals(first_name) && next_employee[2].equals(last_name)) && trans_id.equals(next_employee[1] ) {
                 employee.addJob( next_employee[4], next_employee[5], next_employee[6], Double.parseDouble(next_employee[8]) );
-            } else if ( !(next_employee[3].equals(first_name) && next_employee[2].equals(last_name)) && employee_found ) {
-                all_employees.add(employee);
-                employee_found = false;
             }
         }
         
