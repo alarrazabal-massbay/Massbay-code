@@ -39,3 +39,61 @@ public class Main {
         }
     }
 }
+
+/*
+import java.util.*;
+import java.io.File;
+import java.io.FileNotFoundException;
+
+public class Main{
+
+    public static void main(args []) throws FileNotFoundException {
+
+        Scanner scanner = new Scanner(System.in);
+
+
+        //Ask for the payroll file location
+        System.out.println(" Enter the path to the state payroll file: ");
+
+        String filePath = scanner.nextLine();
+
+        File payrollFile = new File(filePath);
+
+        boolean doesFileActuallyExist = payrollFile.exists();
+
+        //Check if the file exist
+        if (doesFileActuallyExist){
+
+            PayrollLoader fileLoaded = new PayrollLoader(payrollFile);
+
+            while (true) {
+
+                System.out.println("Enter first name (or 'quit' to exit): ");
+                String firstName = scanner.nextLine();
+                System.out.println("Enter last name: ");
+                String lastName = scanner.nextLine();
+            }
+
+            List<Employee> matchingEmployee = new ArrayList<>();
+            
+            matchingEmployee.add( searchEmployee(employee, firstName, lastName) );
+
+            if (matchingEmployee.isEmpty()){
+
+                System.out.println("No matching Employee found ");
+            }
+
+            fileLoaded.close();
+        }else{
+
+            System.out.println("Matching Employee ");
+
+            for (Employee employee : matchingEmployee){
+
+                System.out.println(employee);
+            }
+        }
+
+    }  
+}
+*/
