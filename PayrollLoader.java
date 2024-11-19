@@ -67,4 +67,25 @@ public class PayrollLoader {
         
         return all_employees;
     }
+
+    //lab 8
+    public List<String> search(String job_department) {
+        Scanner input = new Scanner(System.in);
+        PayrollSearcher search_employees = new PayrollSearcher(this.employee_list);
+        List<String> employee_list = new ArrayList<>();
+
+        if ( job_department.equals("department") ) {
+            System.out.print("Enter Department: ");
+            String department = input.nextLine();
+            employee_list = search_employees.findDepartment(department);
+        } else if ( job_department.equals("job title") ) {
+            System.out.print("Enter Job Title: ");
+            String job_title = input.nextLine();
+            employee_list = search_employees.findJobTitle(job_title);
+        } else if ( job_department.equals("both") ) {
+            employee_list = search_employees.findTitleAndDepartment();
+        }
+
+        return employee_list;
+    }
 }
