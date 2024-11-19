@@ -14,6 +14,7 @@ public class Main {
             System.out.println("\nEmployees Loaded: " + payroll_loaded.numEmployees());
             String employee_name = "";
 
+            //lab 7
             while (!employee_name.equals("quit")) {
                 System.out.print("Enter first and last name of a State Employee (To exit, enter \"quit\"): ");
                 employee_name = input.nextLine();
@@ -34,6 +35,16 @@ public class Main {
                     }
                 } else {
                     System.out.println("null");
+                }
+
+                //lab 8
+                while ( !employee_job_department.equals("quit") ) {
+                System.out.print("Search by Department, Job Title, or Both? (Enter \"quit\" to end search): ");
+                employee_job_department = input.nextLine().toLowerCase();
+                
+                if (employee_job_department.equals("quit")){
+                } else {
+                    payroll_loaded.search(employee_job_department);
                 }
             }
         }
