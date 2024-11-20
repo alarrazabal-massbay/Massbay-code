@@ -41,8 +41,8 @@ public class Main {
                 } 
                 */
             //Lab 8
-            String employee_job_department = "";
             PayrollSearcher payroll_search = new PayrollSearcher( payroll_loaded.getList() );
+            String employee_job_department = "";
             while ( !employee_job_department.equals("quit") ) {
                 System.out.print("Enter Department, Job Title, or Both to start search (Enter \"quit\" to end search): ");
                 employee_job_department = input.nextLine().toLowerCase().strip();
