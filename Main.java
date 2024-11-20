@@ -40,22 +40,28 @@ public class Main {
                     System.out.println("null");
                 } 
                 */
-
+            //Lab 8
+            String employee_job_department = "";
+            PayrollSearcher payroll_search = new PayrollSearcher( payroll_loaded.getList() );
             while ( !employee_job_department.equals("quit") ) {
-                System.out.print("Enter Department, Job Title, or Both to search (Enter \"quit\" to end search): ");
+                System.out.print("Enter Department, Job Title, or Both to start search (Enter \"quit\" to end search): ");
                 employee_job_department = input.nextLine().toLowerCase().strip();
-                    
+                
                 if (employee_job_department.equals("quit")) {
                 } else if ( employee_job_department.equals("department") ) {
-                    System.out.print("Enter Department Name: ");
+                    System.out.print("Enter Department: ");
                     String department = input.nextLine().toLowerCase().strip();
-                    payroll_loaded.search(department);
-                    System.out.println(payroll_search);
+                    int departments_found = payroll_search.findDepartments(department);
+                    double total_salary = payroll_search.totalSalary(department);
+                    System.out.println("Departments Found: " + departments_found + 
+                                       "\nTotal Salary: " + total_salary);
                 } else if ( employee_job_department.equals("job title") ) {
                     System.out.print("Enter Job Title: ");
                     String job_title = input.nextLine().toLowerCase().strip();
-                    payroll_loaded.search(job_title)
-                    System.out.println(payroll_search);
+                    int job_title_found = payroll_search.findJobTitle(job_title);
+                    double averageSalary = payroll_search(job_title);
+                    System.out.println("Job Titles Found: " + job_title_found +
+                                       "\nAverage Salary: " + averageSalary);
                 } /* else if ( employee_job_department.equals("both") ) {
                     System.out.print("Enter Department: ");
                     String department = input.nextLine().toLowerCase().strip();
