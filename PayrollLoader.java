@@ -68,7 +68,6 @@ public class PayrollLoader {
         return all_employees;
     }
 
-    /* 
     public List<String> search(String job_department) {
         Scanner input = new Scanner(System.in);
         PayrollSearcher search_employees = new PayrollSearcher(this.employee_list);
@@ -88,6 +87,5 @@ public class PayrollLoader {
 
         return employee_list;
     }
-    */
 }
 
