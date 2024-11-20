@@ -11,7 +11,6 @@ public class Main {
 
         if (payroll_exists) {
             PayrollLoader payroll_loaded = new PayrollLoader(payroll_file);
-            PayrollSearcher payroll_search = new PayrollSearcher(payroll_file);
 
             System.out.println("\nEmployees Loaded: " + payroll_loaded.numEmployees());
             String employee_job_department = "";
@@ -47,12 +46,12 @@ public class Main {
                     } else if ( employee_job_department.equals("department") ) {
                         System.out.print("Enter Department Name: ");
                         String department = input.nextLine().toLowerCase().strip();
-                        payroll_search.findDepartment(department);
+                        payroll_loaded.search(department);
                         System.out.println(payroll_search);
                     } else if ( employee_job_department.equals("job title") ) {
                         System.out.print("Enter Job Title: ");
                         String job_title = input.nextLine().toLowerCase().strip();
-                        payroll_search.findJobTitle(job_title);
+                        payroll_loaded.search(job_title)
                         System.out.println(payroll_search);
                     } /* else if ( employee_job_department.equals("both") ) {
                         System.out.print("Enter Department: ");
