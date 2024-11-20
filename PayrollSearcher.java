@@ -12,7 +12,7 @@ public class PayrollSearcher {
         this.payroll_list = payroll_list;
     }
 
-    public void findDepartment(String department_search) {
+    public int findDepartment(String department_search) {
         Set<String> set_employee_departments = new HashSet<>();
         String trans_id;
         String department_employee;
@@ -29,7 +29,7 @@ public class PayrollSearcher {
 
     }
 
-    public void findJobTitle(String job_title_search) {
+    public int findJobTitle(String job_title_search) {
         List<String> list_job_titles = new ArrayList<>();
         String job_title_employee;
         
@@ -58,14 +58,14 @@ public class PayrollSearcher {
 
         
     }
-
-    public double totalSalary(double pay) {
+    // LOOP THROUGH LIST TO ADD TOTAL SALARY
+    public double totalSalary(String job_title) {
         double total_salary = 0;
 
         return total_salary;
     }
 
-    public double averageSalary() {
+    public double averageSalary(String job_title) {
         double average = 0;
 
         return average;
