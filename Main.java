@@ -46,9 +46,7 @@ public class Main {
             while ( !employee_job_department.equals("quit") ) {
                 System.out.print("Enter Department, Job Title, or Both to start search (Enter \"quit\" to end search): ");
                 employee_job_department = input.nextLine().toLowerCase().strip();
-                
-                if (employee_job_department.equals("quit")) {
-                } else if ( employee_job_department.equals("department") ) {
+                if ( employee_job_department.equals("department") ) {
                     System.out.print("Enter Department: ");
                     String department = input.nextLine().toLowerCase().strip();
                     int departments_found = payroll_search.findDepartments(department);
