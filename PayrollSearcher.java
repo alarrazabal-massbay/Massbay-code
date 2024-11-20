@@ -2,26 +2,14 @@ import java.io.*;
 import java.util.*;
 
 public class PayrollSearcher {
-    // Make List for every function instead of making an attribute 
-
+    // USE WEEK 6 CLASSES OF CLASS TO SOLVE
+    
     //ATTRIBUTES
     private List<String[]> payroll_list = new ArrayList<>();
-    private int departments_found;
-    private int job_titles_found;
-    private List<Employee> employee_list = new ArrayList<>();
 
     //METHODS
-    public PayrollSearcher( File payroll_file ) throws FileNotFoundException {
-        Scanner payroll_reader = new Scanner(payroll_file);
-        String header_line = payroll_reader.nextLine(); //<- Skips header line to start employee list
-
-        while ( payroll_reader.hasNext() ) {
-            String[] payroll_line = payroll_reader.nextLine().split(",");
-            this.payroll_list.add( payroll_line );
-        }
-
-        this.departments_found = 0;
-        this.job_titles_found = 0;
+    public PayrollSearcher( List<String> payroll_list ) throws FileNotFoundException {
+        this.payroll_list = payroll_list;
     }
 
     public void findDepartment(String department_search) {
@@ -37,7 +25,7 @@ public class PayrollSearcher {
             }
         }
 
-        this.departments_found = set_employee_departments.size();
+        return set_employee_departments.size();
 
     }
 
@@ -52,9 +40,10 @@ public class PayrollSearcher {
             }
         }
 
-        this.job_titles_found = list_job_titles.size();
+        return list_job_titles.size();
     }
 
+    /*
     public void findTitleAndDepartment(String department_search, String job_title_search) {
         String department;
         String job_title;
@@ -63,16 +52,9 @@ public class PayrollSearcher {
             department = next_employee[4];
             job_title = next_employee[5];
             if ( department.equals(department_search) && job_title.contains(job_title_search) ) {
-                /*
-                make employee
-                add employee to the list
-                 */
 
-                Employee employee = new Employee(next_employee[1], next_employee[2], next_employee[3]);
-                employee.addJob(department, job_title, next_employee[6], Double.parseDouble(next_employee[8]));
-                this.employee_list.add(employee);
             }
-        }
+        } */
 
         
     }
@@ -89,25 +71,5 @@ public class PayrollSearcher {
         return average;
     }
 
-    @Override
-    public String toString() {
-        String representation = "";
-
-        if ( this.departments_found > 0 && this.job_titles_found == 0 ) {
-            representation = representation +
-            "Number of Employees in Department: " + this.departments_found;
-        } else if ( this.departments_found == 0 && this.job_titles_found > 0 ) {
-            representation = representation +
-            "Number of Employees with Job Title: " + this.job_titles_found;
-        } else if ( !employee_list.isEmpty() ) {
-            representation = representation + 
-            "List of All Employees in Department";
-            for ( Employee next_employee : this.employee_list ) {
-                // representation = representation + 
-                // #. "\n" get employee name - get employee job titles
-            }
-        }
-
-        return representation;
     }
 }
