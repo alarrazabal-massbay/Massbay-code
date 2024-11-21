@@ -2,7 +2,7 @@ import java.io.*;
 import java.util.*;
 
 public class Main {
-    public static void main(String[] args) throws FileNotFoundException{
+    public static void main(String[] args) throws FileNotFoundException {
         Scanner input = new Scanner(System.in); 
         System.out.print("Enter payroll file path: ");
         String payroll_path = input.nextLine();
@@ -21,8 +21,7 @@ public class Main {
             while (!employee_name.equals("quit")) {
                 System.out.print("Enter first and last name of a State Employee (To exit, enter \"quit\"): ");
                 employee_name = input.nextLine();
-                if (employee_name.equals("quit")) {
-                } else if (employee_name.contains(" ")) {
+                if (employee_name.contains(" ")) {
                     List<Employee> employees = payroll_loaded.getEmployee(employee_name);
                     int employee_num = 1;
                     for ( Employee next_employee : employees ) {
@@ -40,6 +39,7 @@ public class Main {
                     System.out.println("null");
                 } 
                 */
+
             //Lab 8
             PayrollSearcher payroll_search = new PayrollSearcher( payroll_loaded.getList() );
             String employee_job_department = "";
@@ -48,26 +48,32 @@ public class Main {
                 employee_job_department = input.nextLine().toLowerCase().strip();
                 if ( employee_job_department.equals("department") ) {
                     System.out.print("Enter Department: ");
-                    String department = input.nextLine().toLowerCase().strip();
-                    int departments_found = payroll_search.findDepartments(department);
-                    double total_salary = payroll_search.totalSalary(department);
-                    System.out.println("Departments Found: " + departments_found + 
-                                       "\nTotal Salary: " + total_salary);
+                    String department = input.nextLine().strip();
+                    System.out.println( 
+                    "Number of Employees in " + department + ": "+ payroll_search.findDepartments(department) +
+                    "\nTotal Salary in Department: $" + String.format("%.2f", payroll_search.totalSalary(department) ));
                 } else if ( employee_job_department.equals("job title") ) {
                     System.out.print("Enter Job Title: ");
-                    String job_title = input.nextLine().toLowerCase().strip();
-                    int job_title_found = payroll_search.findJobTitle(job_title);
-                    double averageSalary = payroll_search(job_title);
-                    System.out.println("Job Titles Found: " + job_title_found +
-                                       "\nAverage Salary: " + averageSalary);
-                } /* else if ( employee_job_department.equals("both") ) {
+                    String job_title = input.nextLine().strip();
+                    System.out.println(
+                    "Job Titles Found (" + job_title + "): " + payroll_search.findJobTitle(job_title) +
+                    "\nAverage Salary (" + job_title + "): $" + String.format("%.2f", payroll_search.averageSalary(job_title)) );
+                } else if ( employee_job_department.equals("both") ) {
                     System.out.print("Enter Department: ");
-                    String department = input.nextLine().toLowerCase().strip();
-                    System.out.print("\nEnter Job Title: ");
-                    String job_title = input.nextLine().toLowerCase().strip();
-                    search_payroll.findTitleAndDepartment(department, job_title);
+                    String department = input.nextLine().strip();
+                    System.out.print("Enter Job Title: ");
+                    String job_title = input.nextLine().strip();
+                    Set<String> employees_in_department = payroll_search.findDepartmentAndTitle(department, job_title);
+                    System.out.println(
+                    "\nAll Employees (" + job_title + ") in " + department + 
+                    "\n--------------------------------------------------------------------------");
+                    int counter = 0;
+                    for (String next_employee : employees_in_department ) {
+                        System.out.println(next_employee);
+                        counter++;
+                    }
+                    System.out.println("Total " + job_title + ": " + counter);
                 }
-                */
             } 
         }
     }
